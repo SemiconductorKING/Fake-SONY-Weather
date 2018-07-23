@@ -13,3 +13,9 @@
 天气预报初次打开会往cookie储存预制的五个城市（demo展示），用户之后做出的修改（增加删除城市）会同步到cookie里，现在删光所有城市会恢复初始五个城市状态（方便调试）。
 
 天气预报的界面左右滑动使用的是swiper，可以用触屏鼠标和键盘控制城市天气页面的切换，menu侧栏的城市列表与天气预报滑动页面做了联动，点击可以做出相应的跳转。
+
+### SCREENSHOT
+
+<img src='https://github.com/SemiconductorKING/Fake-SONY-Weather/blob/master/Demo%20Show/weather@2x.png?raw=true' alt='Weather homepage' width='350px' />
+
+<img src='https://github.com/SemiconductorKING/Fake-SONY-Weather/blob/master/Demo%20Show/weather-menu@2x.png?raw=true' alt='Weather menupage' width='350px' />
