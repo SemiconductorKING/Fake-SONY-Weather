@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-dpr="1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1,maximum-scale=1">
+    <meta name="apple-mobile-web-app-title" content="Wonderful"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="flexible" content="initial-dpr=2"/>
+    <link rel="stylesheet" href="CSS/reset.css">
+    <link rel="stylesheet" href="CSS/swiper.min.css">
+    <link rel="stylesheet" href="CSS/layout.css">
+    <title>Weather</title>
+</head>
+<body>
+<div id="weather">
+    <!--头部与侧边栏-->
+    <header class="header">
+        <!--汉堡按钮，同时做遮罩用-->
+        <input type="checkbox" class="nav-cb" id="menu-cb">
+        <label class="nav-btn menu" for="menu-cb">=</label>
+        <!--侧边栏部分-->
+        <div class="side-menu flex-col">
+            <div class="side-header">
+                <h2>My locations</h2>
+            </div>
+            <!--侧边栏的城市列表-->
+            <div class="side-locations side-locations-true"
+                 onscroll="document.getElementById('ToScroll2').scrollTop = this.scrollTop;"
+                 id="ToScroll1"
+            >
+                <location-list-temp v-for="(item,index) in allForecasts"
+                                    :my-forecasts="item"
+                                    :key="item.id"
+                                    :my-index="index"
+                                    @remove="removeCity(index)"
+                >
+                </location-list-temp>
+            </div>
+            <!--城市列表切换分页器功能-->
+            <div class="side-locations swiper-pagination1"
+                 onscroll="document.getElementById('ToScroll1').scrollTop = this.scrollTop;"
+                 id="ToScroll2"
+            >
+                <!--<location-list-temp v-for="(item,index) in allForecasts"-->
+                                    <!--:my-forecasts="item"-->
+                                    <!--:key="item.id"-->
+                                    <!--:my-index="index"-->
+                                    <!--@remove="item.splice(index, 1)"-->
+                <!--&gt;-->
+                <!--</location-list-temp>-->
+
+                <!--<div class="loc-li flex-hor">-->
+                    <!--<div class="loc-type">阴</div>-->
+                    <!--<div class="loc-city flex-col">-->
+                        <!--<div class="loc-city-name">北京</div>-->
+                        <!--<div class="loc-tem">22°</div>-->
+                    <!--</div>-->
+                    <!--<div class="loc-close">×</div>-->
+                <!--</div>-->
+
+
+            </div>
+            <div class="side-footer">
+                <div class="add-loc">
+                    <div class="side-footer-left">+</div>
+                    <div class="side-footer-right">Add location</div>
+                </div>
+                <div class="about">
+                    <div class="side-footer-left">©</div>
+                    <div class="side-footer-right">Weather By ZXY</div>
+                </div>
+            </div>
+        </div>
+        <!--天气主页的头部城市-->
+        <div class="city">
+            <h2 v-cloak>{{cityName}}</h2>
+        </div>
+    </header>
+    <!--天气主页的滑动主页-->
+    <div class="swiper-container swiper-container-horizontal swiper-container-android"
+         style="width: 100%;height: 100%;">
+        <div class="swiper-wrapper">
+            <!--子滑动页-->
+            <weather-temp
+                    v-for="(item,index) in allForecasts"
+                    :my-forecasts="item"
+                    :key="item.id"
+                    :my-index="index"
+            >
+            </weather-temp>
+
+        </div>
+        <!--滑动指示器-->
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+</div>
+</body>
+<script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.4/??flexible_css.js,flexible.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.5.16/vue.js"></script>
+<script src="https://unpkg.com/vue-cookies@1.5.5/vue-cookies.js"></script>
+<script src="JS/swiper.min.js"></script>
+<script src="JS/main.js"></script>
+<script>
+
+
+</script>
+</html>

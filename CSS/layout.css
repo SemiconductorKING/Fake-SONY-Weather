@@ -1,0 +1,373 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Apple SD Gothic Neo", sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 220px;
+    min-height: 667px;
+    background: #657b3d;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+#iSlider-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.flex-col {
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: column nowrap;
+    -webkit-flex-flow: column nowrap;
+    align-items: center;
+    -webkit-align-items: center;
+    text-align: center;
+}
+
+.flex-hor {
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row nowrap;
+    -webkit-flex-flow: row nowrap;
+    align-items: center;
+    -webkit-align-items: center;
+    text-align: center;
+}
+
+.today, .temp-up, .temp-low, .temp-main, .forecast, .case {
+    width: 100%;
+}
+
+.main {
+    padding-top: 2rem;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#weather {
+    position: relative;
+    background: url("../images/day_cloudy.png") 50% 0 no-repeat;
+    background-size: 100%;
+    max-width: 26rem;
+    height: 100%;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 2rem;
+}
+
+.menu{
+    position: fixed;
+    font-size: 1rem;
+    text-align: center;
+    text-shadow: 0 -0.2rem;
+    line-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    font-weight: 300;
+    font-family: Roboto light, sans-serif;
+}
+
+.today {
+    margin-bottom: 0.4rem;
+}
+
+.temp-main {
+    margin: 0.5rem 0 2.5rem;
+}
+
+.type {
+    width: 40%;
+    padding: 15px 30px 25px;
+    font-size: 25px;
+    text-align: right;
+    flex-grow: 1;
+}
+
+.temp-type {
+    font-size: 16px;
+    font-family: Hei, serif;
+}
+
+.temperature {
+    width: 20%;
+}
+
+.temp {
+    font-size: 70px;
+    font-weight: 100;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.temp-r {
+    width: 40%;
+    padding: 10px 20px 30px;
+    flex-grow: 1;
+}
+
+.temp-up, .temp-low {
+    font-size: 14px;
+    text-align: left;
+}
+
+.temp-up {
+    padding: 0.1rem 0 0.2rem;
+}
+
+.today-info {
+    width: 100%;
+    font-size: 16px;
+    line-height: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.force {
+    width: 34%;
+    border-left: #FFFFFF solid 1px;
+    border-right: #FFFFFF solid 1px
+}
+
+.direction, .quality {
+    width: 33%;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.case {
+    margin: 2px 0;
+    padding: 0 0.5rem;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 45px;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.case-date {
+    flex-grow: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.case-up-low {
+    padding-left: 0.5rem;
+    width: 80px;
+    white-space: nowrap;
+}
+
+.case-low {
+    display: inline;
+}
+
+.case-low, .temp-low {
+    color: rgba(256, 256, 256, 0.5);
+}
+
+.warning{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 14px;
+    line-height: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.footer-info{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0.15rem 0.2rem;
+}
+
+/*side-menu 边栏*/
+.side-wrap{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-cb {
+    z-index: -1000;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+.nav-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    z-index: 997;
+    cursor: pointer;
+}
+.shadow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+}
+.side-menu{
+    position: absolute;
+    width: 85%;
+    height: 100%;
+    background: #eeeeee;
+    z-index: 999;
+    left: -100%;
+    -webkit-transition: left 0.5s ease-out;
+    transition: left 0.5s ease-out;
+}
+
+.nav-cb:checked ~ .side-menu {
+    left: 0;
+}
+
+.nav-cb:checked + .nav-btn{
+    width: 100%;
+    height: 100%;
+    color: rgba(0,0,0,0);
+    background-color: rgba(0,0,0,0.5);
+    -webkit-transition: background-color 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
+}
+
+.side-header{
+    width: 100%;
+    background: #3f5565;
+    text-align: left;
+    padding-left: 0.4rem;
+    font-size: 0.5rem;
+    height: 1.6rem;
+    color: #eeeeee;
+}
+
+.side-header h2{
+    height: 100%;
+}
+
+.side-locations{
+    margin-top: 1.6rem;
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    overflow: hidden;
+    overflow-y: scroll;
+    color: #333333;
+}
+
+.side-locations-true .loc-close{
+    z-index: 1200;
+}
+
+.side-locations a{
+    color: #333333;
+}
+
+.loc-li{
+    height: 1.6rem;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.loc-type,.loc-close{
+    width: 2.5rem;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    height: 100%;
+    line-height: 100%;
+    font-size: 0.5rem;
+    color: #aaa;
+    white-space: nowrap;
+}
+
+.loc-close{
+    padding: 0 0.25rem;
+    width: 1rem;
+}
+
+.loc-city>.loc-city-name,.loc-city>.loc-tem{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    font-size: 0.35rem;
+    text-align: left;
+    align-items: center;
+}
+
+.loc-city{
+    width: 100%;
+    height: 100%;
+}
+
+.side-footer{
+    position: relative;
+    top: 70%;
+    width: 100%;
+    border-top: 1px solid #cccccc;
+    color: #333333;
+    background: #eeeeee;
+}
+
+.add-loc,.about{
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    height: 100%;
+    line-height: 1rem;
+    font-size: 0.35rem
+}
+
+.side-footer-left{
+    width: 1.5rem;
+    font-size: 0.5rem;
+}
+
+.side-footer-right{
+    flex-grow: 1;
+    text-align: left;
+}
+
+.swiper-pagination-bullet {
+    border-radius: 0;
+    background: #fff;
+    opacity: 0;
+}
+
+.swiper-pagination-bullet-active {
+    height: 2.6rem;
+    background: #000;
+    opacity: 0.1;
+    margin: -0.5rem 0;
+    box-sizing: content-box;
+    z-index: 1300;
+}
+
+.swiper-pagination-bullet-active:first-child{
+    height: 3.1rem;
+}
